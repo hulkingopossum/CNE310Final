@@ -3,17 +3,11 @@ Application using python to communicate with an AI fantasy bartender who serves 
 
 Make sure you have have python installed and downloaded
 
-# Ollama
-Download and install Ollama: https://ollama.com/download
-Ollama allows us to download and run local LLMs (for our communication)
+Install Dependencies
 
-The following commands will be in the terminal/command prompt
-Test installation of Ollama with the following command
-    ollama
-Install llama3 with the following command
-    ollama pull llama3
-Test installation of llama3 with the following commands
-    ollama run llama3
-    Hello World!
-    /bye
+    pip install Flask
+    pip install pandas
 
+# Pivot
+This project had to be pivoted from a speech-speech model to a text based model due to losing workstudy and losing access to the API (thanks RTC!)
+My apologies for not delivering the original product
