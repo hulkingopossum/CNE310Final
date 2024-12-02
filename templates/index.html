@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yawning Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Welcome to the Yawning Portal</h1>
+    <div id="chatbox">
+        <div id="messages"></div>
+        <input type="text" id="user-input" placeholder="Ask about drinks or rumors...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({message: userInput})
+            });
+            const data = await response.json();
+            const messages = document.getElementById('messages');
+            messages.innerHTML += `<div><b>You:</b> ${userInput}</div>`;
+            messages.innerHTML += `<div><b>Durnan:</b> ${data.response}</div>`;
+            document.getElementById('user-input').value = '';
+        }
+    </script>
+</body>
+</html>
